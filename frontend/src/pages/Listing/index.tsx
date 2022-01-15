@@ -1,7 +1,9 @@
+import Pagination from "components/navbar/pagination";
+
 function Listing() {
 
     return (
-        <h1> </h1>
+        <Pagination />
     );
 }
 
