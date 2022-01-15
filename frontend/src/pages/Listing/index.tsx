@@ -1,9 +1,24 @@
-import Pagination from "components/navbar/pagination";
+import MovieCard from "components/movieCard";
+import Pagination from "components/pagination";
+
 
 function Listing() {
 
     return (
-        <Pagination />
+        <>
+            <Pagination />
+
+
+            <div className="container">
+                <div className="row">
+                    <div className="col-sm-6 col-lg-4 col-xl-3">
+                        <MovieCard />
+                    </div>
+                </div>
+            </div>
+
+            
+        </>
     );
 }
 
