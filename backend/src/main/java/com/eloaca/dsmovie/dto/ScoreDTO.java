@@ -6,19 +6,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class ScoreDTO {
 
-    private ScorePKDTO id = new ScorePKDTO();
-    private Double value;
+    private Long movieId;
+    private String email;
+    private Double score;
 
-    public ScoreDTO(Score score){
-        this.id = new ScorePKDTO(score.getId());
-        this.value = score.getValue();
-    }
 }
