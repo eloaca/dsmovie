@@ -25,13 +25,15 @@ public class ScoreServiceBean implements ScoreService {
     final UserRepository userRepository;
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional(readOnly = false)
     public MovieDTO save(ScoreDTO dto) {
         var user = userRepository.findByEmail(dto.getEmail());
         var usuario = new User();
         if (user.isEmpty()) {
             usuario.setEmail(dto.getEmail());
             usuario = userRepository.saveAndFlush(usuario);
+        } else {
+            usuario = user.get();
         }
         var movie = this.movieRepository.findById(dto.getMovieId()).get();
         var score = new Score(new ScorePK(movie, usuario), dto.getScore());
